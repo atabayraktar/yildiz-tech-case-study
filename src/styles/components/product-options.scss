@@ -8,8 +8,20 @@
     @include mobile {
       padding: 0 10px;
     }
+    @include tabletVertical {
+      padding: 0 20px;
+    }
+    @include tabletVerticalPro {
+      padding: 0 20px;
+    }
     .title-wrapper {
       min-width: 130px;
+      @include tabletVertical {
+        min-width: 190px !important;
+      }
+      @include tabletVerticalPro {
+        min-width: 190px !important;
+      }
       display: flex;
       justify-content: space-between;
       align-items: center;

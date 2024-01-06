@@ -6,12 +6,27 @@
   @include smaller {
     margin-right: 30px;
   }
+  @include tabletVertical {
+    margin-right: 0 !important;
+  }
+  @include tabletVerticalPro {
+    margin-right: 0 !important;
+  }
+  @include tabletHorizontal {
+    margin-right: 50px;
+  }
   .main-image {
     margin-bottom: 100px;
     text-align: center;
     img {
       height: 100%;
       width: auto;
+    }
+    @include tabletHorizontal {
+      img {
+        height: 350px;
+        width: auto;
+      }
     }
   }
   .images {
@@ -25,6 +40,14 @@
         width: auto;
         border-radius: 5px;
         border: 1px solid #ccc5c5;
+      }
+      @include tabletHorizontal {
+        img {
+          height: 75px;
+          width: auto;
+          border-radius: 5px;
+          border: 1px solid #ccc5c5;
+        }
       }
     }
   }

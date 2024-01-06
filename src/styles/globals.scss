@@ -24,4 +24,12 @@ body {
   @include mobile {
     flex-direction: column;
   }
+  @include tabletVertical {
+    flex-direction: column;
+    overflow-x: hidden;
+  }
+  @include tabletVerticalPro {
+    flex-direction: column;
+    overflow-x: hidden;
+  }
 }

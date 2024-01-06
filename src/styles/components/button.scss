@@ -23,6 +23,12 @@
     @include mobile {
       min-width: 150px;
     }
+    @include tabletVertical {
+      min-width: 160px;
+    }
+    @include tabletVerticalPro {
+      min-width: 160px;
+    }
   }
   &-active {
     @extend .btn-option-box;
@@ -44,6 +50,14 @@
     color: white;
     background: #ffbe00;
     @include mobile {
+      padding: 23px 30px;
+      font-size: 20px;
+    }
+    @include tabletVertical {
+      padding: 23px 30px;
+      font-size: 20px;
+    }
+    @include tabletVerticalPro {
       padding: 23px 30px;
       font-size: 20px;
     }

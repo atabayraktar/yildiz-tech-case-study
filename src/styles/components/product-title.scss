@@ -5,7 +5,15 @@
     color: black;
     @include mobile {
       padding: 0 10px;
-      width: 100%;
+      width: 115%;
+    }
+    @include tabletVertical {
+      padding: 0 10px;
+      width: 115%;
+    }
+    @include tabletVerticalPro {
+      padding: 0 10px;
+      width: 115%;
     }
   }
 }

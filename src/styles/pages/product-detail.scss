@@ -6,4 +6,13 @@
     margin-bottom: 25px;
     padding: 0 330px;
   }
+  @include tabletVertical {
+    margin-bottom: 25px;
+    padding: 0 330px;
+  }
+}
+.detail-section {
+  @include tabletVerticalPro {
+    padding: 0 100px;
+  }
 }

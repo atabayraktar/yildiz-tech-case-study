@@ -4,6 +4,12 @@
   @include mobile {
     padding: 0 10px;
   }
+  @include tabletVertical {
+    padding: 0 20px;
+  }
+  @include tabletVerticalPro {
+    padding: 0 20px;
+  }
   .star {
     color: #ccc;
     font-size: 30px;
