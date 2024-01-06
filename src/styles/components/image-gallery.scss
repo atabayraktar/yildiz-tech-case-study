@@ -1,0 +1,28 @@
+.image-gallery {
+  margin-right: 80px;
+  @include smaller {
+    margin-right: 30px;
+  }
+  .main-image {
+    margin-bottom: 100px;
+    text-align: center;
+    img {
+      height: 100%;
+      width: auto;
+    }
+  }
+  .images {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    .image {
+      img {
+        height: 150px;
+        width: auto;
+        border-radius: 5px;
+        border: 1px solid #ccc5c5;
+      }
+    }
+  }
+}

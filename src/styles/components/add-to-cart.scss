@@ -1,0 +1,49 @@
+.add-to-cart {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 15px;
+  .title-wrapper {
+    margin-top: 7px;
+    min-width: 130px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    font-size: 20px;
+    margin-right: 15px;
+    font-weight: bold;
+  }
+  .options-wrapper {
+    display: flex;
+    flex-direction: column;
+    .price {
+      font-size: 35px;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    .cargo {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+      img {
+        height: 30px;
+        width: 30px;
+        margin-right: 10px;
+      }
+      span {
+        margin-left: 5px;
+        color: #69a5d7;
+      }
+    }
+    .buton-section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      font-size: 22px;
+      color: #69a5d7;
+      span {
+        cursor: pointer;
+      }
+    }
+  }
+}
