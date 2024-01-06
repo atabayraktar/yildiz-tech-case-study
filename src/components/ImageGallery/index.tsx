@@ -9,8 +9,8 @@ const ImageGallery = ({ images }: { images: string[] }) => {
         <img src={images[0]} />
       </div>
       <div className="images">
-        {images.map((image) => (
-          <div className="image">
+        {images.map((image, index) => (
+          <div className="image" key={index}>
             <img src={image} />
           </div>
         ))}

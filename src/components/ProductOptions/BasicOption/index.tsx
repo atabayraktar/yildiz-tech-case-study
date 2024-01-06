@@ -14,8 +14,8 @@ const BasicOption = ({
         <div>:</div>
       </div>
       <div className="options-wrapper">
-        {values.map((value) => (
-          <Button variant="option-box" label={value} />
+        {values.map((value, index) => (
+          <Button variant="option-box" label={value} key={index} />
         ))}
       </div>
     </div>
