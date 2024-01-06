@@ -1,5 +1,8 @@
 .image-gallery {
   margin-right: 80px;
+  @include mobile {
+    margin-right: 0 !important;
+  }
   @include smaller {
     margin-right: 30px;
   }
@@ -18,7 +21,7 @@
     gap: 20px;
     .image {
       img {
-        height: 150px;
+        height: 125px;
         width: auto;
         border-radius: 5px;
         border: 1px solid #ccc5c5;

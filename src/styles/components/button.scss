@@ -20,6 +20,9 @@
     text-align: center;
     color: black;
     background: white;
+    @include mobile {
+      min-width: 150px;
+    }
   }
   &-active {
     @extend .btn-option-box;
@@ -40,6 +43,10 @@
     text-align: center;
     color: white;
     background: #ffbe00;
+    @include mobile {
+      padding: 23px 30px;
+      font-size: 20px;
+    }
   }
   &-disabled {
     @extend .btn-add-to-cart;

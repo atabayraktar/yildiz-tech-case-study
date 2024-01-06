@@ -3,5 +3,9 @@
   .product-title {
     font-size: 40px;
     color: black;
+    @include mobile {
+      padding: 0 10px;
+      width: 100%;
+    }
   }
 }

@@ -5,6 +5,9 @@
     display: flex;
     justify-content: flex-start;
     margin-bottom: 15px;
+    @include mobile {
+      padding: 0 10px;
+    }
     .title-wrapper {
       min-width: 130px;
       display: flex;
