@@ -1,4 +1,14 @@
-const QuantitySelector = () => {
+import { useAppSelector } from "@/redux/hooks";
+import isBetween from "@/utils/isBetween";
+const QuantitySelector = ({
+  selectedBarem,
+  setSelectedBarem,
+}: {
+  selectedBarem: any;
+  setSelectedBarem: Function;
+}) => {
+  const { product } = useAppSelector((state) => state.product);
+  console.log(typeof setSelectedBarem);
   return (
     <div className="quantity-selector">
       <div className="title-wrapper">
@@ -6,28 +16,31 @@ const QuantitySelector = () => {
           <div>Toptan Fiyat (Adet)</div>
           <div>:</div>
         </div>
-        <div className="info">
-          <div className="info-box-active">
-            <div>100-199</div>
-            <div>1300 TL</div>
+        {product.baremList.map((barem) => (
+          <div className="info">
+            <div
+              className={`info-box ${
+                isBetween(
+                  selectedBarem,
+                  barem.minimumQuantity,
+                  barem.maximumQuantity
+                )
+                  ? "active"
+                  : ""
+              }`}
+            >
+              <div>
+                {barem.minimumQuantity}-{barem.maximumQuantity}
+              </div>
+              <div>
+                {barem.price.toLocaleString("de-DE", {
+                  minimumFractionDigits: 2,
+                })}
+                &ensp;TL
+              </div>
+            </div>
           </div>
-          <div className="info-box">
-            <div>100-199</div>
-            <div>1300 TL</div>
-          </div>
-          <div className="info-box">
-            <div>100-199</div>
-            <div>1300 TL</div>
-          </div>
-          <div className="info-box">
-            <div>100-199</div>
-            <div>1300 TL</div>
-          </div>
-          <div className="info-box">
-            <div>100-199</div>
-            <div>1300 TL</div>
-          </div>
-        </div>
+        ))}
       </div>
       <div className="title-wrapper">
         <div className="title">
@@ -35,7 +48,11 @@ const QuantitySelector = () => {
           <div>:</div>
         </div>
         <div className="input">
-          <input />
+          <input
+            type="number"
+            value={selectedBarem.barem}
+            onChange={(e) => setSelectedBarem(e.target.value)}
+          />
           <span>&nbsp;&nbsp;Adet</span>
           <div className="stock-info">Stok Adedi: 500</div>
         </div>

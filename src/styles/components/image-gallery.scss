@@ -16,7 +16,7 @@
     margin-right: 50px;
   }
   .main-image {
-    margin-bottom: 100px;
+    margin-bottom: 70px;
     text-align: center;
     img {
       height: 100%;
@@ -30,16 +30,27 @@
     }
   }
   .images {
+    max-width: 700px;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     gap: 20px;
+    flex-wrap: wrap;
     .image {
+      cursor: pointer;
       img {
-        height: 125px;
+        height: 100px;
         width: auto;
         border-radius: 5px;
         border: 1px solid #ccc5c5;
+      }
+      &.active {
+        img {
+          height: 100px;
+          width: auto;
+          border-radius: 5px;
+          border: 2px solid black;
+        }
       }
       @include tabletHorizontal {
         img {
@@ -47,6 +58,14 @@
           width: auto;
           border-radius: 5px;
           border: 1px solid #ccc5c5;
+        }
+        &.active {
+          img {
+            height: 75px;
+            width: auto;
+            border-radius: 5px;
+            border: 2px solid black;
+          }
         }
       }
     }

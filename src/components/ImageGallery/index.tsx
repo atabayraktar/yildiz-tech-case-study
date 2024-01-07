@@ -1,16 +1,24 @@
 import { useEffect, useState } from "react";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import { productVariantImages } from "@/utils/productVariantImages";
 
-const ImageGallery = ({ images }: { images: string[] }) => {
+const ImageGallery = () => {
   const [selectedImage, setSelectedImage] = useState("");
+  const { product } = useAppSelector((state) => state.product);
+  const allVariantImages = productVariantImages(product.productVariants);
 
   return (
     <div className="image-gallery">
       <div className="main-image">
-        <img src={images[0]} />
+        <img src={selectedImage !== "" ? selectedImage : allVariantImages[0]} />
       </div>
       <div className="images">
-        {images.map((image, index) => (
-          <div className="image" key={index}>
+        {allVariantImages.map((image, index) => (
+          <div
+            className={`image ${selectedImage !== image ? "" : "active"}`}
+            key={index}
+            onClick={() => setSelectedImage(image)}
+          >
             <img src={image} />
           </div>
         ))}

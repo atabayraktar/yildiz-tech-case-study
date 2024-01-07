@@ -7,7 +7,7 @@ export type productVariantAttributes = {
   selectable: boolean;
   value: string;
 };
-export type productVariants = {
+export type productVariant = {
   id: string;
   attributes: productVariantAttributes[];
   images: string[];
@@ -21,6 +21,6 @@ export type producBaremList = {
 export type product = {
   productTitle: string;
   selectableAttributes: productSelectableAttributes[];
-  productVariants: productVariants[];
+  productVariants: productVariant[];
   baremList: producBaremList[];
 };

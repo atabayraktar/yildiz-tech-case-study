@@ -40,7 +40,7 @@
         font-weight: 500;
         color: black;
         padding: 10px 25px 10px 10px;
-        &-active {
+        &.active {
           @extend .info-box;
           background-color: #feedb9;
           font-weight: 500;

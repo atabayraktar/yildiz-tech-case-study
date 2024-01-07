@@ -1,6 +1,11 @@
+import { calculateTotalPrice } from "@/utils/calculateTotalPrice";
+import { useAppSelector } from "@/redux/hooks";
 import Button from "@/components/Button";
+import findBaremPrice from "@/utils/findBaremPrice";
 
-const AddToCart = ({ totalPrice }: { totalPrice: number }) => {
+const AddToCart = ({ barem }: { barem: number }) => {
+  const { product } = useAppSelector((state) => state.product);
+
   return (
     <div className="add-to-cart">
       <div className="title-wrapper">
@@ -9,7 +14,12 @@ const AddToCart = ({ totalPrice }: { totalPrice: number }) => {
       </div>
       <div className="options-wrapper">
         <div className="price">
-          {totalPrice.toLocaleString("de-DE", { minimumFractionDigits: 2 })}
+          {calculateTotalPrice(
+            findBaremPrice(barem, product.baremList),
+            barem
+          ).toLocaleString("de-DE", {
+            minimumFractionDigits: 2,
+          })}
           &ensp;TL
         </div>
         <div className="cargo">
