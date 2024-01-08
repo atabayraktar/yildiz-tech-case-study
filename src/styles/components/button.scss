@@ -30,11 +30,19 @@
       min-width: 160px;
     }
   }
-  &-active {
+  &.active {
     @extend .btn-option-box;
     button {
       border: 3px solid #616161 !important;
       font-weight: bold;
+    }
+  }
+  &.passive {
+    @extend .btn-option-box;
+    button {
+      font-weight: bold;
+      background-color: #616161;
+      color: white;
     }
   }
 }
@@ -62,7 +70,7 @@
       font-size: 20px;
     }
   }
-  &-disabled {
+  &.disabled {
     @extend .btn-add-to-cart;
     button {
       border: 2px solid #616161 !important;

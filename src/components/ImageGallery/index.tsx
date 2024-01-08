@@ -1,8 +1,17 @@
-import { useEffect, useState } from "react";
-import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import { useState } from "react";
+import { useAppSelector } from "@/redux/hooks";
 import { productVariantImages } from "@/utils/productVariantImages";
+import findSelectedProductVariant from "@/utils/findSelectedProductVariant";
+type selectedVariant = {
+  color: string;
+  size: string;
+};
 
-const ImageGallery = () => {
+const ImageGallery = ({
+  selectedVariant,
+}: {
+  selectedVariant: selectedVariant;
+}) => {
   const [selectedImage, setSelectedImage] = useState("");
   const { product } = useAppSelector((state) => state.product);
   const allVariantImages = productVariantImages(product.productVariants);
@@ -13,15 +22,29 @@ const ImageGallery = () => {
         <img src={selectedImage !== "" ? selectedImage : allVariantImages[0]} />
       </div>
       <div className="images">
-        {allVariantImages.map((image, index) => (
-          <div
-            className={`image ${selectedImage !== image ? "" : "active"}`}
-            key={index}
-            onClick={() => setSelectedImage(image)}
-          >
-            <img src={image} />
-          </div>
-        ))}
+        {selectedVariant.color !== "" && selectedVariant.size !== ""
+          ? findSelectedProductVariant(
+              product,
+              selectedVariant.color,
+              selectedVariant.size
+            ).map((image, index) => (
+              <div
+                className={`image ${selectedImage !== image ? "" : "active"}`}
+                key={index}
+                onClick={() => setSelectedImage(image)}
+              >
+                <img src={image} />
+              </div>
+            ))
+          : allVariantImages.map((image, index) => (
+              <div
+                className={`image ${selectedImage !== image ? "" : "active"}`}
+                key={index}
+                onClick={() => setSelectedImage(image)}
+              >
+                <img src={image} />
+              </div>
+            ))}
       </div>
     </div>
   );

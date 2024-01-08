@@ -1,9 +1,15 @@
-import { calculateTotalPrice } from "@/utils/calculateTotalPrice";
 import { useAppSelector } from "@/redux/hooks";
-import Button from "@/components/Button";
+import { calculateTotalPrice } from "@/utils/calculateTotalPrice";
 import findBaremPrice from "@/utils/findBaremPrice";
+import Button from "@/components/Button";
 
-const AddToCart = ({ barem }: { barem: number }) => {
+const AddToCart = ({
+  barem,
+  addToCardActive,
+}: {
+  barem: number;
+  addToCardActive: boolean;
+}) => {
   const { product } = useAppSelector((state) => state.product);
 
   return (
@@ -27,7 +33,10 @@ const AddToCart = ({ barem }: { barem: number }) => {
           Kargo Ücreti: <span>Alıcı Öder</span>
         </div>
         <div className="buton-section">
-          <Button variant="add-to-cart" label="SEPETE EKLE" />
+          <Button
+            variant={`add-to-cart ${addToCardActive ? "" : "disabled"}`}
+            label="SEPETE EKLE"
+          />
           <span>Ödeme Seçenekleri</span>
         </div>
       </div>

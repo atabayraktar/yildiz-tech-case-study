@@ -1,5 +1,6 @@
 import { useAppSelector } from "@/redux/hooks";
 import isBetween from "@/utils/isBetween";
+
 const QuantitySelector = ({
   selectedBarem,
   setSelectedBarem,
@@ -8,7 +9,6 @@ const QuantitySelector = ({
   setSelectedBarem: Function;
 }) => {
   const { product } = useAppSelector((state) => state.product);
-  console.log(typeof setSelectedBarem);
   return (
     <div className="quantity-selector">
       <div className="title-wrapper">
@@ -50,7 +50,7 @@ const QuantitySelector = ({
         <div className="input">
           <input
             type="number"
-            value={selectedBarem.barem}
+            value={selectedBarem}
             onChange={(e) => setSelectedBarem(e.target.value)}
           />
           <span>&nbsp;&nbsp;Adet</span>

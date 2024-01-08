@@ -6,6 +6,5 @@ export function productVariantImages(productVariants: productVariant[]) {
   productVariants.forEach((variant: any) => {
     variant.images.forEach((image: any) => uniqueImageUrls.add(image));
   });
-  console.log(Array.from(uniqueImageUrls));
   return Array.from(uniqueImageUrls);
 }

@@ -5,7 +5,7 @@ export function findAvailableVariants(
   selectedValue: string,
   productData: product
 ): string[] {
-  const matchingVariants = productData.productVariants.filter((variant) =>
+  const matchingVariants = productData?.productVariants.filter((variant) =>
     variant.attributes.some(
       (attribute: productVariantAttributes) =>
         attribute.name === selectedAttribute &&
@@ -16,7 +16,7 @@ export function findAvailableVariants(
   const otherAttribute = selectedAttribute === "Renk" ? "Beden" : "Renk";
 
   const availableValues = matchingVariants
-    .map((variant) =>
+    ?.map((variant) =>
       variant.attributes.find(
         (attribute: productVariantAttributes) =>
           attribute.name === otherAttribute

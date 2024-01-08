@@ -1,5 +1,5 @@
-import StarRating from "../StarRating";
 import { useAppSelector } from "@/redux/hooks";
+import StarRating from "../StarRating";
 
 const ProductTitle = () => {
   const { product } = useAppSelector((state) => state.product);
