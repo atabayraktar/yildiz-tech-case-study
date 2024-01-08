@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useAppSelector } from "@/redux/hooks";
 import { findAvailableVariants } from "@/utils/findAvailableVariants";
 import Button from "@/components/Button";
 
@@ -13,7 +14,8 @@ const BasicOption = ({
   selectedVariant: any;
   setSelectedVariant: Function;
 }) => {
-  const [selectedVariantTitle, setSelectedVariantTitle] = useState("");
+  const { product } = useAppSelector((state) => state.product);
+  const [availableVariants, setAvailableVariants] = useState<string[]>([]);
 
   const handleOptionSelect = (title: string, value: string) => {
     if (title === "Renk") {
@@ -21,8 +23,18 @@ const BasicOption = ({
     } else if (title === "Beden") {
       setSelectedVariant((prev: any) => ({ ...prev, size: value }));
     }
-    setSelectedVariantTitle(title);
   };
+
+  useEffect(() => {
+    setAvailableVariants([]);
+    const variants = findAvailableVariants(
+      title,
+      selectedVariant.color,
+      product
+    );
+    setAvailableVariants(variants);
+    console.log(availableVariants);
+  }, [selectedVariant.color]);
 
   return (
     <div className="basic-option">
@@ -38,6 +50,8 @@ const BasicOption = ({
                 ? "active"
                 : title === "Beden" && selectedVariant.size === value
                 ? "active"
+                : availableVariants.includes(value)
+                ? "passive"
                 : ""
             }`}
             label={value}
