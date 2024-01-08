@@ -54,7 +54,10 @@ const QuantitySelector = ({
             onChange={(e) => setSelectedBarem(e.target.value)}
           />
           <span>&nbsp;&nbsp;Adet</span>
-          <div className="stock-info">Stok Adedi: 500</div>
+          <div className="stock-info">
+            Stok Adedi:{" "}
+            {product.baremList[product.baremList.length - 1].maximumQuantity}
+          </div>
         </div>
       </div>
     </div>
