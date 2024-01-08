@@ -50,7 +50,8 @@ const BasicOption = ({
                 ? "active"
                 : title === "Beden" && selectedVariant.size === value
                 ? "active"
-                : availableVariants.includes(value)
+                : selectedVariant.color == "Siyah" &&
+                  (value == "M" || value == "XL")
                 ? "passive"
                 : ""
             }`}

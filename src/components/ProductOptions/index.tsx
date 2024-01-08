@@ -16,14 +16,19 @@ const ProductOptions = ({
   const { product } = useAppSelector((state) => state.product);
   return (
     <div className="product-options">
-      {product.selectableAttributes.map((attribute) => (
-        <BasicOption
-          title={attribute.name}
-          values={attribute.values}
-          selectedVariant={selectedVariant}
-          setSelectedVariant={setSelectedVariant}
-        />
-      ))}
+      <BasicOption
+        title={product?.selectableAttributes[0]?.name}
+        values={product?.selectableAttributes[0]?.values}
+        selectedVariant={selectedVariant}
+        setSelectedVariant={setSelectedVariant}
+      />
+      <BasicOption
+        title={product?.selectableAttributes[1]?.name}
+        values={product?.selectableAttributes[1]?.values}
+        selectedVariant={selectedVariant}
+        setSelectedVariant={setSelectedVariant}
+      />
+
       <QuantitySelector
         selectedBarem={selectedBarem}
         setSelectedBarem={setSelectedBarem}
