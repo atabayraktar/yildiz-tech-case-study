@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useAppSelector } from "@/redux/hooks";
 import { productVariantImages } from "@/utils/productVariantImages";
 import findSelectedProductVariant from "@/utils/findSelectedProductVariant";
@@ -15,6 +15,18 @@ const ImageGallery = ({
   const [selectedImage, setSelectedImage] = useState("");
   const { product } = useAppSelector((state) => state.product);
   const allVariantImages = productVariantImages(product.productVariants);
+
+  useEffect(() => {
+    if (selectedVariant.color !== "" && selectedVariant.size !== "") {
+      setSelectedImage(
+        findSelectedProductVariant(
+          product,
+          selectedVariant.color,
+          selectedVariant.size
+        )[0]
+      );
+    }
+  }, [selectedVariant.color, selectedVariant.size]);
 
   return (
     <div className="image-gallery">
